@@ -19,8 +19,6 @@ def get_image_id(pagination_url, first = False):
     else:
         image_id = image_data.get("data")[0]["id"]
         next_image = image_data.get("paging").get("next")
-    print image_id
-    print next_image
     return image_id, next_image
 
 def get_full_resolution_image_url(image_id):
@@ -38,7 +36,6 @@ if __name__ == "__main__":
     while next_image!=None:
         get_full_resolution_image_url(image_id)
         counter+=1
-        print counter
         image_id, next_image = get_image_id(next_image)
 
     get_full_resolution_image_url(image_id)
